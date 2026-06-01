@@ -265,7 +265,7 @@
             align-items: center;
             gap: 14px;
             padding: 16px 28px;
-            background: #FFCE00;
+            background: #D4A017;
             border: none;
             border-bottom: 1px solid rgba(0,0,0,.06);
             box-shadow: none;
