@@ -177,7 +177,6 @@ function loadMixStudy(item) {
     const img  = document.getElementById('study-img');
     const imgWrap = document.getElementById('study-img-wrap');
     const trContainer = document.getElementById('study-tr-container');
-    const actionRow   = document.getElementById('study-action-row');
 
     deEl.textContent = item.de;
     deEl.className   = 'premium-study-de' + (item.type === 'sentence' ? ' is-sentence' : '');
@@ -194,12 +193,10 @@ function loadMixStudy(item) {
     }
 
     trContainer.classList.remove('shown');
-    actionRow.style.display = 'none';
 
     playItemAudio(item);
     setTimeout(() => {
         trContainer.classList.add('shown');
-        actionRow.style.display = 'flex';
     }, 1100);
 }
 
