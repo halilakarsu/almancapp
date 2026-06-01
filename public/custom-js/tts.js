@@ -1,7 +1,7 @@
 (function(global) {
     'use strict';
 
-    let _utterance = null;
+    let _currentAudio = null;
 
     function _clean(text) {
         return text.replace(/<\/?[^>]+(>|$)/g, '').trim();
@@ -15,18 +15,36 @@
             || null;
     }
 
-    function speakGerman(text) {
-        if (!text || !window.speechSynthesis) return;
+    function _speechFallback(text) {
+        if (!window.speechSynthesis) return;
         window.speechSynthesis.cancel();
-        const clean = _clean(text);
-        if (!clean) return;
-        const ut = new SpeechSynthesisUtterance(clean);
+        const ut = new SpeechSynthesisUtterance(text);
         ut.lang = 'de-DE';
         ut.rate = 0.92;
         const voice = _getDeVoice();
         if (voice) ut.voice = voice;
         window.speechSynthesis.speak(ut);
-        _utterance = ut;
+    }
+
+    function speakGerman(text) {
+        if (!text) return;
+        if (_currentAudio) {
+            _currentAudio.pause();
+            _currentAudio.src = '';
+            _currentAudio = null;
+        }
+        if (window.speechSynthesis) {
+            window.speechSynthesis.cancel();
+        }
+        const clean = _clean(text);
+        if (!clean) return;
+        const url = 'https://translate.google.com/translate_tts'
+            + '?client=webapp&ie=UTF-8&tl=de&q=' + encodeURIComponent(clean);
+        _currentAudio = new Audio(url);
+        _currentAudio.volume = 1.0;
+        _currentAudio.play().catch(function() {
+            _speechFallback(clean);
+        });
     }
 
     if (window.speechSynthesis) {
