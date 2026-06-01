@@ -64,10 +64,10 @@
             display: none;
             flex-direction: column;
             background:
-                radial-gradient(ellipse at top left,    rgba(221,0,0,.25)   0%, transparent 40%),
-                radial-gradient(ellipse at top right,   rgba(255,206,0,.25) 0%, transparent 40%),
-                radial-gradient(ellipse at bottom left, rgba(255,206,0,.25) 0%, transparent 40%),
-                radial-gradient(ellipse at bottom right,rgba(221,0,0,.25)   0%, transparent 40%),
+                radial-gradient(ellipse at top left,    rgba(255,206,0,.22) 0%, transparent 40%),
+                radial-gradient(ellipse at top right,   rgba(255,206,0,.18) 0%, transparent 40%),
+                radial-gradient(ellipse at bottom left, rgba(255,206,0,.18) 0%, transparent 40%),
+                radial-gradient(ellipse at bottom right,rgba(255,206,0,.22) 0%, transparent 40%),
                 #ffffff;
             overflow: hidden;
         }
