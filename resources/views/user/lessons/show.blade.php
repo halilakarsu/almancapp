@@ -275,17 +275,17 @@
         .btn-close-mix {
             width: 36px; height: 36px;
             border-radius: 10px;
-            background: rgba(204,0,0,.12);
-            color: rgba(255,255,255,.45);
+            background: rgba(212,160,23,.1);
+            color: rgba(0,0,0,.4);
             display: flex; align-items: center; justify-content: center;
             font-size: .9rem; text-decoration: none;
             transition: all .2s; flex-shrink: 0;
-            border: 1px solid rgba(204,0,0,.2);
+            border: 1px solid rgba(212,160,23,.2);
         }
         .btn-close-mix:hover {
-            background: rgba(204,0,0,.35);
-            color: #ff6b6b;
-            border-color: rgba(204,0,0,.5);
+            background: rgba(212,160,23,.25);
+            color: #8B6B00;
+            border-color: rgba(212,160,23,.4);
         }
 
         .mix-progress-wrap {
@@ -427,7 +427,7 @@
             padding: 5px 12px;
         }
         .study-chip-arrow {
-            color: rgba(204,0,0,.4);
+            color: rgba(212,160,23,.45);
             font-size: .7rem; font-weight: 500;
         }
 
@@ -435,7 +435,7 @@
         .study-lang-pill {
             font-size: .6rem; font-weight: 600;
             letter-spacing: 1.2px; text-transform: uppercase;
-            color: rgba(204,0,0,.5);
+            color: rgba(212,160,23,.55);
             margin-bottom: 14px;
             display: flex; align-items: center; gap: 6px;
         }
@@ -443,11 +443,11 @@
             content: '';
             display: inline-block;
             width: 18px; height: 2px;
-            background: rgba(204,0,0,.4);
+            background: rgba(212,160,23,.45);
             border-radius: 99px;
         }
 
-        /* Hero kelime — beyaz, ince */
+        /* Hero kelime — ince */
         .premium-study-de {
             font-size: 3.4rem;
             font-weight: 600;
@@ -496,7 +496,7 @@
         .tr-reveal-label {
             font-size: .6rem; font-weight: 600;
             letter-spacing: 1.2px; text-transform: uppercase;
-            color: rgba(204,0,0,.5);
+            color: rgba(212,160,23,.55);
             margin-bottom: 12px;
             display: flex; align-items: center; gap: 6px;
         }
@@ -504,7 +504,7 @@
             content: '';
             display: inline-block;
             width: 18px; height: 2px;
-            background: rgba(204,0,0,.4);
+            background: rgba(212,160,23,.45);
             border-radius: 99px;
         }
 
