@@ -265,9 +265,9 @@
             align-items: center;
             gap: 14px;
             padding: 16px 28px;
-            background: rgba(10,10,14,.7);
+            background: #FFCE00;
             border: none;
-            border-bottom: 1px solid rgba(212,160,23,.1);
+            border-bottom: 1px solid rgba(0,0,0,.06);
             box-shadow: none;
             margin: 0;
             flex-shrink: 0;
