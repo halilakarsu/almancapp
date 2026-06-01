@@ -509,7 +509,7 @@
 
         .premium-study-tr {
             font-size: 1.75rem; font-weight: 500;
-            color: rgba(0,0,0,.65);
+            color: #1a1a1a;
             line-height: 1.4; letter-spacing: -.2px;
         }
         .premium-study-tr.is-sentence {
@@ -544,16 +544,16 @@
         /* Klavye ipucu */
         .study-keyboard-hint {
             font-size: .58rem; font-weight: 400;
-            color: rgba(0,0,0,.2);
+            color: rgba(0,0,0,.4);
             margin-top: 12px;
             display: flex; align-items: center; justify-content: center; gap: 5px;
         }
         .study-keyboard-hint kbd {
-            background: rgba(0,0,0,.04);
-            border: 1px solid rgba(0,0,0,.08);
+            background: rgba(0,0,0,.06);
+            border: 1px solid rgba(0,0,0,.12);
             border-radius: 5px; padding: 2px 8px;
             font-size: .56rem; font-family: 'Poppins', sans-serif;
-            color: rgba(0,0,0,.3); font-weight: 500;
+            color: rgba(0,0,0,.5); font-weight: 500;
         }
 
         @media(max-width:600px){
@@ -630,7 +630,7 @@
         .flip-lang {
             display: flex; align-items: center; gap: 6px;
             font-size: .6rem; font-weight: 600; letter-spacing: 1.2px;
-            text-transform: uppercase; color: #C0BAB0;
+            text-transform: uppercase; color: #666;
         }
         .flip-pill {
             display: flex; align-items: center; gap: 5px;
@@ -649,7 +649,7 @@
             100%    { transform: rotate(360deg); }
         }
         .flip-tap-hint {
-            font-size: .65rem; font-weight: 500; color: #C8C2B8;
+            font-size: .65rem; font-weight: 500; color: #888;
             display: flex; align-items: center; gap: 6px;
         }
         .flip-tap-arrows { display: flex; gap: 1px; }
@@ -722,7 +722,7 @@
         }
         .quiz-q-label {
             font-size:.6rem; font-weight:600; letter-spacing:1.4px;
-            text-transform:uppercase; color:#C0BAB0; margin-bottom:10px;
+            text-transform:uppercase; color:#888; margin-bottom:10px;
         }
         .quiz-q-tr {
             font-size:1.6rem; font-weight:600; color:#111;
@@ -763,7 +763,7 @@
         .duo-opt-btn:disabled { cursor:default; }
         .duo-opt-letter {
             width:30px; height:30px; border-radius:8px;
-            background:#F7F5F0; color:#888;
+            background:#F7F5F0; color:#555;
             display:flex; align-items:center; justify-content:center;
             font-size:.75rem; font-weight:700; flex-shrink:0;
             transition:all .15s;
