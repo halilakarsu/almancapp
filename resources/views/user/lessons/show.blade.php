@@ -1105,8 +1105,8 @@
     /* ── BACK ── */
     .duo-flip-back {
         transform: rotateY(180deg);
-        background: linear-gradient(135deg, #111111 0%, #1a1a1a 45%, #3d3000 75%, #FFCE00 100%);
-        box-shadow: 0 8px 32px rgba(0, 0, 0, .22);
+        background: linear-gradient(135deg, #FFF8E7 0%, #FFECD2 35%, #FFD6D6 70%, #FFC0C0 100%);
+        box-shadow: 0 8px 32px rgba(255, 180, 100, .18);
     }
 
     .duo-flip-back::before {
@@ -1115,8 +1115,8 @@
         inset: 0;
         border-radius: 22px;
         background:
-            radial-gradient(ellipse at 15% 15%, rgba(255, 206, 0, .12) 0%, transparent 55%),
-            radial-gradient(ellipse at 85% 85%, rgba(255, 206, 0, .08) 0%, transparent 50%);
+            radial-gradient(ellipse at 15% 15%, rgba(255, 200, 100, .25) 0%, transparent 55%),
+            radial-gradient(ellipse at 85% 85%, rgba(255, 150, 150, .15) 0%, transparent 50%);
         pointer-events: none;
         z-index: 0;
     }
@@ -1126,7 +1126,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        border-bottom: 1px solid rgba(255, 255, 255, .08);
+        border-bottom: 1px solid rgba(0, 0, 0, .06);
         position: relative;
         z-index: 1;
         flex-shrink: 0;
@@ -1146,13 +1146,13 @@
 
     .duo-flip-back-footer {
         padding: 12px 20px;
-        border-top: 1px solid rgba(255, 255, 255, .07);
+        border-top: 1px solid rgba(0, 0, 0, .06);
         display: flex;
         align-items: center;
         justify-content: center;
         font-size: .62rem;
         font-weight: 500;
-        color: rgba(255, 255, 255, .25);
+        color: rgba(0, 0, 0, .25);
         position: relative;
         z-index: 1;
         flex-shrink: 0;
@@ -1167,13 +1167,13 @@
         font-weight: 600;
         letter-spacing: 1.2px;
         text-transform: uppercase;
-        color: rgba(255, 255, 255, .4);
+        color: rgba(0, 0, 0, .35);
     }
 
     .flip-back-orig {
         font-size: .65rem;
         font-weight: 500;
-        color: rgba(255, 206, 0, .5);
+        color: rgba(180, 100, 60, .55);
         font-style: italic;
     }
 
@@ -1182,18 +1182,18 @@
         font-weight: 600;
         letter-spacing: 1.2px;
         text-transform: uppercase;
-        color: rgba(255, 255, 255, .35);
+        color: rgba(0, 0, 0, .3);
         text-align: center;
     }
 
     .flip-tr-text {
         font-size: 2.2rem;
         font-weight: 600;
-        color: #FFCE00;
+        color: #8B3A00;
         line-height: 1.15;
         letter-spacing: -.5px;
         text-align: center;
-        text-shadow: 0 2px 20px rgba(255, 206, 0, .25);
+        text-shadow: 0 2px 20px rgba(255, 180, 100, .2);
     }
 
     .flip-tr-text.is-sentence {
