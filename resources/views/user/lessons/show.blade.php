@@ -335,10 +335,8 @@
             padding: 16px 0 6px;
         }
         .mix-type-badge-mascot {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            object-fit: cover;
+            width: 44px;
+            height: auto;
             flex-shrink: 0;
         }
         .mix-type-badge {
