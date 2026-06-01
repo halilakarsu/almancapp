@@ -275,33 +275,32 @@
         .btn-close-mix {
             width: 36px; height: 36px;
             border-radius: 10px;
-            background: rgba(212,160,23,.1);
-            color: rgba(0,0,0,.4);
+            background: #CC0000;
+            color: #fff;
             display: flex; align-items: center; justify-content: center;
             font-size: .9rem; text-decoration: none;
             transition: all .2s; flex-shrink: 0;
-            border: 1px solid rgba(212,160,23,.2);
+            border: none;
         }
         .btn-close-mix:hover {
-            background: rgba(212,160,23,.25);
-            color: #8B6B00;
-            border-color: rgba(212,160,23,.4);
+            background: #DD0000;
+            color: #fff;
+            transform: scale(1.05);
         }
 
         .mix-progress-wrap {
             flex: 1;
             height: 5px;
-            background: rgba(0,0,0,.06);
+            background: rgba(255,255,255,.2);
             border-radius: 99px;
             overflow: hidden;
         }
         .mix-progress-fill {
             height: 100%;
             width: 0%;
-            background: linear-gradient(90deg, var(--de-gold), var(--de-gold-l));
+            background: #1a1a1a;
             border-radius: 99px;
             transition: width .45s cubic-bezier(.16,1,.3,1);
-            box-shadow: 0 0 10px rgba(212,160,23,.5);
         }
 
         /* Ses butonu HUD'da */
