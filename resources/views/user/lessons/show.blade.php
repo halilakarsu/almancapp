@@ -412,41 +412,6 @@
             max-width: 560px;
         }
 
-        /* Dil chip'leri */
-        .study-chips {
-            display: flex; align-items: center; gap: 8px;
-            margin-bottom: 32px;
-        }
-        .study-chip {
-            display: inline-flex; align-items: center; gap: 6px;
-            font-size: .65rem; font-weight: 500; letter-spacing: .3px;
-            color: rgba(212,160,23,.7);
-            background: rgba(212,160,23,.07);
-            border: 1px solid rgba(212,160,23,.18);
-            border-radius: 8px;
-            padding: 5px 12px;
-        }
-        .study-chip-arrow {
-            color: rgba(212,160,23,.45);
-            font-size: .7rem; font-weight: 500;
-        }
-
-        /* Micro-label */
-        .study-lang-pill {
-            font-size: .6rem; font-weight: 600;
-            letter-spacing: 1.2px; text-transform: uppercase;
-            color: rgba(212,160,23,.55);
-            margin-bottom: 14px;
-            display: flex; align-items: center; gap: 6px;
-        }
-        .study-lang-pill::before {
-            content: '';
-            display: inline-block;
-            width: 18px; height: 2px;
-            background: rgba(212,160,23,.45);
-            border-radius: 99px;
-        }
-
         /* Hero kelime — ince */
         .premium-study-de {
             font-size: 3.4rem;
@@ -1181,20 +1146,10 @@
                     {{-- ── STUDY ── --}}
                     <div id="mix-study" style="display:none; width:100%; flex-direction:column; align-items:flex-start;" class="ex-animate">
 
-                        {{-- Dil chip'leri --}}
-                        <div class="study-chips">
-                            <span class="study-chip">🇩🇪 Almanca</span>
-                            <span class="study-chip-arrow">→</span>
-                            <span class="study-chip">🇹🇷 Türkçe</span>
-                        </div>
-
                         {{-- Görsel (varsa) --}}
                         <div class="premium-study-img-wrap" id="study-img-wrap" style="display:none;">
                             <img id="study-img" class="premium-study-img">
                         </div>
-
-                        {{-- Almanca micro-label --}}
-                        <span class="study-lang-pill">🇩🇪 Almanca</span>
 
                         {{-- Hero kelime --}}
                         <div class="premium-study-de" id="study-de"></div>
