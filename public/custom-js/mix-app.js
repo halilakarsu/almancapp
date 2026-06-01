@@ -205,7 +205,7 @@ function loadMixStudy(item) {
 // ══════════════════════════
 function loadMixFlip(item) {
     document.getElementById('flip-de').textContent = item.de;
-    document.getElementById('flip-tr').textContent = item.de;
+    document.getElementById('flip-tr').textContent = item.tr;
     const backOrig = document.getElementById('flip-de-back');
     if (backOrig) backOrig.textContent = item.de;
     const container = document.getElementById('flip-card-container');
