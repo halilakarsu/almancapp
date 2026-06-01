@@ -1177,30 +1177,7 @@
         font-style: italic;
     }
 
-    .flip-tr-label {
-        font-size: .58rem;
-        font-weight: 600;
-        letter-spacing: 1.2px;
-        text-transform: uppercase;
-        color: rgba(0, 0, 0, .3);
-        text-align: center;
-    }
 
-    .flip-tr-text {
-        font-size: 2.2rem;
-        font-weight: 600;
-        color: #8B3A00;
-        line-height: 1.15;
-        letter-spacing: -.5px;
-        text-align: center;
-        text-shadow: 0 2px 20px rgba(255, 180, 100, .2);
-    }
-
-    .flip-tr-text.is-sentence {
-        font-size: 1.5rem;
-        font-weight: 500;
-        letter-spacing: -.2px;
-    }
 
     .flip-click-ring {
         display: none;
@@ -2174,12 +2151,11 @@
                             {{-- Arka yüz --}}
                             <div class="duo-flip-back">
                                 <div class="duo-flip-back-top">
-                                    <div class="flip-back-lang">🇹🇷 Türkçesi</div>
+                                    <div class="flip-back-lang">Alıştırma</div>
                                     <div class="flip-back-orig" id="flip-de-back"></div>
                                 </div>
                                 <div class="duo-flip-back-body">
-                                    <div class="flip-tr-label">Türkçe karşılığı</div>
-                                    <div class="flip-tr-text" id="flip-tr"></div>
+                                    <div class="flip-de-text" id="flip-tr"></div>
                                 </div>
                                 <div class="duo-flip-back-footer">geri döndürmek için tekrar tıkla</div>
                             </div>
