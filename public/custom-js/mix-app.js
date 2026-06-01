@@ -627,7 +627,7 @@ function launchConfetti() {
     canvas.width  = window.innerWidth;
     canvas.height = window.innerHeight;
 
-    const COLORS = ['#ffffff','#ffc800','#ff4b4b','#1cb0f6','#ce82ff','#ff9600'];
+    const COLORS = ['#ffffff','#FFE066','#FFD700','#FFC107','#FFEC80','#FFF3CC'];
     const pieces = Array.from({length: 120}, () => ({
         x: Math.random() * canvas.width,
         y: Math.random() * -canvas.height,
