@@ -38,9 +38,7 @@
         }
         const clean = _clean(text);
         if (!clean) return;
-        const url = 'https://translate.google.com/translate_tts'
-            + '?client=webapp&ie=UTF-8&tl=de&q=' + encodeURIComponent(clean);
-        _currentAudio = new Audio(url);
+        _currentAudio = new Audio('/tts?text=' + encodeURIComponent(clean));
         _currentAudio.volume = 1.0;
         _currentAudio.play().catch(function() {
             _speechFallback(clean);

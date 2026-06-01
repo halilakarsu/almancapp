@@ -11,6 +11,7 @@ use App\Http\Controllers\User\CardController as UserCardController;
 use App\Http\Controllers\User\DashboardController as UserDashboardController;
 use App\Http\Controllers\User\LessonController as UserLessonController;
 use App\Http\Controllers\User\LevelController as UserLevelController;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 // Frontend Routes
@@ -25,6 +26,22 @@ Route::get('/lesson/{id}/match', [UserLessonController::class, 'matchWords'])->n
 Route::get('/lesson/{id}/scramble', [UserLessonController::class, 'scrambleSentences'])->name('user.lesson.scramble');
 Route::get('/lesson/{id}/fill', [UserLessonController::class, 'fillBlanks'])->name('user.lesson.fill');
 Route::get('/lesson/{id}/write', [UserLessonController::class, 'writePractice'])->name('user.lesson.write');
+
+// TTS proxy
+Route::get('/tts', function (Request $request) {
+    $text = $request->query('text');
+    if (! $text || strlen($text) > 200) {
+        return response('', 400);
+    }
+    $url = 'https://translate.google.com/translate_tts?client=webapp&ie=UTF-8&tl=de&q='.urlencode($text);
+    $ctx = stream_context_create(['http' => ['user_agent' => 'Mozilla/5.0']]);
+    $audio = @file_get_contents($url, false, $ctx);
+    if (! $audio) {
+        return response('', 502);
+    }
+
+    return response($audio, 200)->header('Content-Type', 'audio/mpeg');
+})->name('tts');
 
 // Card study routes
 Route::get('/lesson/{id}/cards', [UserCardController::class, 'study'])->name('user.cards.study');
