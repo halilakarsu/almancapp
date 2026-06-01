@@ -63,18 +63,6 @@
     text-align: right;
 }
 
-/* ── HEARTS ──────────────────────────────────────── */
-.ex-hearts {
-    display: flex;
-    gap: 4px;
-    justify-content: center;
-    margin-bottom: 28px;
-}
-.ex-hearts span {
-    font-size: 1.5rem;
-    transition: all 0.3s;
-}
-
 /* ── QUESTION CARD ───────────────────────────────── */
 .ex-card {
     background: #ffffff;
@@ -390,7 +378,6 @@ const TOTAL   = CARDS.length;
 const LETTERS = ['A', 'B', 'C', 'D'];
 
 let current    = 0;
-let hearts     = 3;
 let correctCnt = 0;
 let wrongCnt   = 0;
 let answered   = false;
@@ -459,7 +446,6 @@ function handleAnswer(chosen, correct, btn) {
         nb.onclick     = nextCard;
     } else {
         wrongCnt++;
-        loseHeart();
         btn.classList.add('wrong');
         // Show correct answer
         document.querySelectorAll('.ex-choice').forEach(b => {
@@ -481,12 +467,6 @@ function nextCard() {
     renderCard();
 }
 
-function loseHeart() {
-    hearts = Math.max(0, hearts - 1);
-    const spans = document.querySelectorAll('#hearts span');
-    if (spans[hearts]) spans[hearts].textContent = '🖤';
-}
-
 function showComplete() {
     document.getElementById('quizArea').style.display = 'none';
     const screen = document.getElementById('completeScreen');
@@ -505,12 +485,9 @@ function restartQuiz() {
         [CARDS[i], CARDS[j]] = [CARDS[j], CARDS[i]];
     }
     current    = 0;
-    hearts     = 3;
     correctCnt = 0;
     wrongCnt   = 0;
     answered   = false;
-    // Reset hearts
-    document.querySelectorAll('#hearts span').forEach(s => s.textContent = '❤️');
     document.getElementById('quizArea').style.display = 'block';
     document.getElementById('completeScreen').classList.remove('show');
     renderCard();

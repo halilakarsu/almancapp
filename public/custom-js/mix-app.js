@@ -12,7 +12,6 @@ const MIX = {
     // Stats
     correctCount: 0,
     wrongCount: 0,
-    heartsLeft: 3,
     startTime: null,
     xp: 0
 };
@@ -144,17 +143,6 @@ function mixStepComplete(delay = 0, requeueItem = false) {
     else playNextMix();
 }
 
-// ── HEARTS ──
-function loseHeart() {
-    if (MIX.heartsLeft <= 0) return;
-    MIX.heartsLeft--;
-    const heart = document.getElementById('heart-' + (MIX.heartsLeft + 1));
-    if (heart) {
-        heart.classList.add('shake');
-        setTimeout(() => { heart.classList.remove('shake'); heart.classList.add('lost'); }, 400);
-    }
-}
-
 // ── FEEDBACK BANNER helper ──
 function showFeedback(containerId, iconId, titleId, subId, isCorrect, subText) {
     const box = document.getElementById(containerId);
@@ -274,7 +262,6 @@ function checkMixQuiz(btn, selected, correct, allOptions) {
     } else {
         btn.classList.add('is-wrong');
         btn.classList.add('q-shake');
-        loseHeart();
         MIX.wrongCount++;
         // highlight correct
         document.querySelectorAll('.duo-opt-btn').forEach(b => {
@@ -359,7 +346,6 @@ function checkMixScramble() {
         showFeedback('scramble-feedback','scr-fb-icon','scr-fb-title','scr-fb-sub', true, 'Mükemmel!');
         playItemAudio(item);
     } else {
-        loseHeart();
         MIX.wrongCount++;
         showFeedback('scramble-feedback','scr-fb-icon','scr-fb-title','scr-fb-sub', false, 'Doğrusu: ' + scrTarget);
         playItemAudio(item);
@@ -442,7 +428,6 @@ function checkMixFill() {
         playItemAudio(item);
     } else {
         if (inp) inp.classList.add('wrong');
-        loseHeart();
         MIX.wrongCount++;
         showFeedback('fill-feedback','fill-fb-icon','fill-fb-title','fill-fb-sub', false, 'Doğrusu: ' + fillTarget);
     }
@@ -504,7 +489,6 @@ function checkMixWrite() {
         playItemAudio(item);
     } else {
         inp.classList.add('wrong');
-        loseHeart();
         MIX.wrongCount++;
         showFeedback('write-feedback','write-fb-icon','write-fb-title','write-fb-sub', false, 'Doğrusu: ' + item.de);
         playItemAudio(item);
@@ -590,7 +574,6 @@ function checkMatch() {
         }, 900);
     } else {
         mSelTr.classList.add('error'); mSelDe.classList.add('error');
-        loseHeart();
         let a = new Audio('https://assets.mixkit.co/active_storage/sfx/2997/2997-preview.mp3');
         a.volume = 0.4; a.play().catch(() => {});
         setTimeout(() => {

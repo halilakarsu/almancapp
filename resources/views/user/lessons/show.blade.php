@@ -408,28 +408,6 @@
         transition: width .45s cubic-bezier(.16, 1, .3, 1);
     }
 
-    /* Hearts */
-    .mix-hearts {
-        display: flex;
-        gap: 3px;
-        flex-shrink: 0;
-    }
-
-    .mix-heart {
-        font-size: 1.1rem;
-        transition: transform .2s;
-        line-height: 1;
-    }
-
-    .mix-heart.lost {
-        filter: grayscale(1);
-        opacity: .3;
-    }
-
-    .mix-heart.shake {
-        animation: heartShake .4s ease;
-    }
-
     @keyframes heartShake {
 
         0%,
@@ -2102,11 +2080,6 @@
             </a>
             <div class="mix-progress-wrap">
                 <div class="mix-progress-fill" id="unified-progress-bar"></div>
-            </div>
-            <div class="mix-hearts" id="mix-hearts-wrap">
-                <span class="mix-heart" id="heart-1">❤️</span>
-                <span class="mix-heart" id="heart-2">❤️</span>
-                <span class="mix-heart" id="heart-3">❤️</span>
             </div>
             <button class="btn-play-audio" onclick="playCurrentMixAudio()" id="unified-audio-btn" title="Sesi Çal">
                 <i class="bi bi-volume-up-fill"></i>
