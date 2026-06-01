@@ -327,29 +327,43 @@
         }
 
         /* Exercise type badge */
+        .mix-type-badge-wrap {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 16px 0 6px;
+        }
+        .mix-type-badge-mascot {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
         .mix-type-badge {
             display: inline-flex;
             align-items: center;
-            gap: 6px;
-            font-size: .58rem;
-            font-weight: 600;
-            letter-spacing: 1.8px;
+            gap: 8px;
+            font-size: .9rem;
+            font-weight: 800;
+            letter-spacing: 1.2px;
             text-transform: uppercase;
-            color: rgba(212,160,23,.65);
-            padding: 5px 14px;
-            background: rgba(212,160,23,.07);
+            color: #1a1a1a;
+            padding: 8px 20px;
+            background: rgba(255,206,0,.12);
             border-radius: 99px;
-            border: 1px solid rgba(212,160,23,.15);
+            border: 1.5px solid rgba(255,206,0,.3);
             margin-bottom: 0;
         }
         .mix-type-badge::before {
             content: '';
             display: inline-block;
-            width: 5px; height: 5px;
+            width: 6px; height: 6px;
             border-radius: 50%;
-            background: var(--de-gold);
+            background: #D4A017;
             flex-shrink: 0;
-            box-shadow: 0 0 6px rgba(212,160,23,.6);
+            box-shadow: 0 0 8px rgba(212,160,23,.6);
         }
 
         /* ═══════════════════════════════
@@ -1171,7 +1185,8 @@
             </div>
 
             {{-- Exercise type badge --}}
-            <div style="text-align:center; padding:14px 0 4px;">
+            <div class="mix-type-badge-wrap">
+                <img src="{{ asset('assets/img/maskot4.png') }}" class="mix-type-badge-mascot" alt="">
                 <span class="mix-type-badge" id="mix-type-badge"></span>
             </div>
 
