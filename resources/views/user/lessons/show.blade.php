@@ -545,20 +545,6 @@
         .mix-btn.premium-next-btn:active { transform: translateY(1px); }
 
         /* Klavye ipucu */
-        .study-keyboard-hint {
-            font-size: .58rem; font-weight: 400;
-            color: rgba(0,0,0,.4);
-            margin-top: 12px;
-            display: flex; align-items: center; justify-content: center; gap: 5px;
-        }
-        .study-keyboard-hint kbd {
-            background: rgba(0,0,0,.06);
-            border: 1px solid rgba(0,0,0,.12);
-            border-radius: 5px; padding: 2px 8px;
-            font-size: .56rem; font-family: 'Poppins', sans-serif;
-            color: rgba(0,0,0,.5); font-weight: 500;
-        }
-
         @media(max-width:600px){
             .premium-study-de { font-size: 2.5rem; }
             .premium-study-tr { font-size: 1.4rem; }
@@ -1228,9 +1214,6 @@
                         <button class="mix-btn premium-next-btn" id="study-next-btn" onclick="mixStepComplete(0)">
                             Devam Et <i class="bi bi-arrow-right"></i>
                         </button>
-                        <p class="study-keyboard-hint">
-                            <kbd>Space</kbd> veya <kbd>Enter</kbd> ile devam et
-                        </p>
                     </div>
 
                     {{-- ── FLIP ── --}}
