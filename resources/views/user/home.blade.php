@@ -20,8 +20,7 @@
                 $totalLessons = $levels->sum(fn($l) => $l->lessons->count());
             @endphp
 
-            <h2>Hey! &nbsp;{{ explode(' ', Auth::user()?->name ?? 'Öğrenci')[0] }}! 👋<br>
-                Almancayı seviyelerle adım adım keşfet.</h2>
+            <h2>Almancayı seviyelerle adım adım keşfet.</h2>
 
             <div class="hero-stats" aria-label="Eğitim özeti">
                 <span>{{ $totalLevels }} seviye</span>
