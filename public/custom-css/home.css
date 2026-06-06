@@ -440,12 +440,18 @@ body,
 }
 
 .level-action-row {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: calc(var(--card-size) * 0.38);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 100%;
-    margin-top: calc(var(--card-size) * 0.026);
-    padding: 0 4px;
+    padding: 0 8px;
+    pointer-events: none;
+}
+.level-action-row > * {
+    pointer-events: auto;
 }
 
 .level-meta {
