@@ -441,13 +441,12 @@ body,
 
 .level-action-row {
     position: absolute;
-    left: 0;
-    right: 0;
+    left: calc(var(--card-size) * 0.075);
+    right: calc(var(--card-size) * 0.075);
     top: calc(var(--card-size) * 0.38);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 8px;
     pointer-events: none;
 }
 .level-action-row > * {
