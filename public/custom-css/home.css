@@ -442,8 +442,10 @@ body,
 .level-action-row {
     display: flex;
     align-items: center;
-    gap: 8px;
+    justify-content: space-between;
+    width: 100%;
     margin-top: calc(var(--card-size) * 0.026);
+    padding: 0 4px;
 }
 
 .level-meta {
@@ -546,9 +548,8 @@ body,
     }
 
     .level-action-row {
-        width: min(80%, 260px);
-        gap: 6px;
-        transform: translateX(calc(var(--card-size) * 0.02));
+        width: 100%;
+        padding: 0 2px;
     }
 
     .level-meta {
