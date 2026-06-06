@@ -53,15 +53,6 @@
                     $lessonCount = $level->lessons->count();
                     $ctaText = $progress >= 100 ? 'Tekrarla' : 'Derse başla';
 
-                    $accentMap = [
-                        'A1' => '#FFCC00', 'A2' => '#ef4444',
-                        'B1' => '#60a5fa', 'B2' => '#a78bfa',
-                        'C1' => '#fb7185', 'C11' => '#fb7185',
-                        'C2' => '#f59e0b', 'C21' => '#f59e0b',
-                        '1' => '#FFCC00',
-                    ];
-                    $accentColor = $accentMap[$levelBadge] ?? '#58c5f0';
-
                     $fallbackMascots = ['maskot4.png', 'mascot.png', 'mascot2.png'];
                     $selectedMascot = $fallbackMascots[$loop->index % count($fallbackMascots)];
                     $cardImageSrc = $level->level_image
@@ -76,7 +67,6 @@
                     data-level-name="{{ $levelName ?: $level->level_title }}"
                     data-lesson-count="{{ $lessonCount }}"
                     data-progress="{{ $progress }}"
-                    data-level-accent="{{ $accentColor }}"
                     aria-label="{{ $level->level_title }} - {{ $progress }}% tamamlandı">
 
                     {{-- Dış çerçeve (lacivert #0a0e1f) — zaten kart bg rengi --}}
@@ -167,7 +157,6 @@
             }
 
             // ── Active level hero updater ──
-            var heroSection = document.querySelector('.hero-section');
             var heroBadge = document.getElementById('hero-level-badge');
             var heroTitle = document.getElementById('hero-level-title');
             var heroLessons = document.getElementById('hero-lesson-count');
@@ -180,13 +169,6 @@
                 heroTitle.textContent = card.dataset.levelName || '';
                 heroLessons.textContent = card.dataset.lessonCount + ' ders';
                 heroProgress.textContent = '%' + card.dataset.progress + ' tamamlandı';
-
-                var accent = card.dataset.levelAccent || '#58c5f0';
-                heroSection.style.background = 'linear-gradient(180deg, ' +
-                    accent + ' 0%, ' +
-                    accent + 'cc 30%, ' +
-                    accent + '99 60%, ' +
-                    accent + '66 100%)';
             }
 
             // Set initial from first card
