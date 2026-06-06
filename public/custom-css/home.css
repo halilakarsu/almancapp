@@ -319,6 +319,26 @@ body,
     --level-accent-soft: #fff0cf;
 }
 
+.level-card--1 {
+    --level-accent: #58c5f0;
+    --level-accent-soft: #d4f0ff;
+}
+
+.level-card--2 {
+    --level-accent: #ef4444;
+    --level-accent-soft: #fecaca;
+}
+
+.level-card--3 {
+    --level-accent: #FFCC00;
+    --level-accent-soft: #fff7ca;
+}
+
+.level-card--4 {
+    --level-accent: #1a1a2e;
+    --level-accent-soft: #e0e0f0;
+}
+
 .level-card:hover {
     transform: translateY(-8px) scale(1.04);
     filter: drop-shadow(0 22px 44px rgba(10, 14, 31, 0.28));
