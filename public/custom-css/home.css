@@ -48,10 +48,10 @@ body,
             #7dd4f7 35%,
             #aae5ff 65%,
             #c8eefd 100%);
-    padding: 28px 48px;
+    padding: 36px 56px;
     margin-bottom: 30px;
     overflow: hidden;
-    min-height: 160px;
+    min-height: 200px;
 }
 
 .hero-section::before {
