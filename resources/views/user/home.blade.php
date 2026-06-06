@@ -58,6 +58,7 @@
                         'B1' => '#60a5fa', 'B2' => '#a78bfa',
                         'C1' => '#fb7185', 'C11' => '#fb7185',
                         'C2' => '#f59e0b', 'C21' => '#f59e0b',
+                        '1' => '#FFCC00',
                     ];
                     $accentColor = $accentMap[$levelBadge] ?? '#58c5f0';
 

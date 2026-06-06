@@ -413,7 +413,7 @@ body,
     margin-top: calc(var(--card-size) * 0.004);
     border-radius: 50%;
     background:
-        conic-gradient(var(--level-accent) var(--progress), var(--ring-track) 0);
+        conic-gradient(#7dd4f7 var(--progress), var(--ring-track) 0);
     box-shadow:
         0 10px 22px rgba(10, 14, 31, 0.14),
         inset 0 0 0 2px rgba(10, 14, 31, 0.12);
