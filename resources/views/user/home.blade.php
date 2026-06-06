@@ -29,9 +29,14 @@
 </div>
 
 {{-- ============================================================
-     LEVEL CARDS
+     LEVEL CARDS — Carousel
      ============================================================ --}}
-<div class="level-grid">
+<div class="carousel-wrapper">
+    <button class="carousel-arrow carousel-arrow-left" onclick="scrollCarousel(-1)" aria-label="Önceki">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <div class="carousel-fade-left"></div>
+    <div class="level-grid" id="level-carousel">
 
     @forelse($levels as $level)
         @php
@@ -187,6 +192,11 @@
         </div>
     @endforelse
 
+    </div>
+    <div class="carousel-fade-right"></div>
+    <button class="carousel-arrow carousel-arrow-right" onclick="scrollCarousel(1)" aria-label="Sonraki">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
 </div>
 
 {{-- ── Animate progress bars on page load ── --}}
@@ -200,6 +210,13 @@
             }, 300);
         });
     });
+
+    function scrollCarousel(dir) {
+        var el = document.getElementById('level-carousel');
+        if (!el) return;
+        var w = el.querySelector('.level-card') ? el.querySelector('.level-card').offsetWidth + 20 : 360;
+        el.scrollBy({ left: dir * w, behavior: 'smooth' });
+    }
 </script>
 
 @endsection

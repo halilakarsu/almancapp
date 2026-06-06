@@ -93,18 +93,48 @@
     flex-shrink: 0;
 }
 
-/* ── Grid ─────────────────────────────────────────────────── */
+/* ── Carousel ─────────────────────────────────────────────── */
 .level-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 22px;
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+    padding: 8px 4px 16px;
+    margin: 0 -4px;
+}
+
+.level-grid::-webkit-scrollbar {
+    height: 6px;
+}
+
+.level-grid::-webkit-scrollbar-track {
+    background: rgba(0,0,0,.04);
+    border-radius: 99px;
+}
+
+.level-grid::-webkit-scrollbar-thumb {
+    background: rgba(0,0,0,.12);
+    border-radius: 99px;
+}
+
+.level-grid::-webkit-scrollbar-thumb:hover {
+    background: rgba(0,0,0,.2);
+}
+
+.level-grid > .level-card {
+    flex: 0 0 340px;
+    scroll-snap-align: start;
 }
 
 @media (max-width: 860px) {
     .hero-section { padding: 28px 24px; }
     .hero-text h1 { font-size: 1.9rem; }
     .hero-mascot  { width: 120px; }
-    .level-grid   { grid-template-columns: 1fr; gap: 16px; }
+    .level-grid > .level-card { flex: 0 0 280px; }
+    .level-grid { gap: 14px; }
 }
 
 /* ── Card ─────────────────────────────────────────────────── */
@@ -392,6 +422,56 @@
 .level-card:hover .level-cta-row {
     filter: brightness(1.08);
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+}
+
+/* ── Carousel wrapper and arrows ──────────────────────────── */
+.carousel-wrapper {
+    position: relative;
+}
+
+.carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #fff;
+    border: 1.5px solid #e2e8f0;
+    color: #475569;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(0,0,0,.08);
+    transition: all .2s ease;
+}
+.carousel-arrow:hover {
+    background: #f8fafc;
+    border-color: #94a3b8;
+    color: #0f172a;
+    box-shadow: 0 6px 20px rgba(0,0,0,.12);
+}
+.carousel-arrow-left  { left: -20px; }
+.carousel-arrow-right { right: -20px; }
+
+.carousel-fade-left,
+.carousel-fade-right {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 60px;
+    pointer-events: none;
+    z-index: 5;
+}
+.carousel-fade-left  { left: 0; background: linear-gradient(to right, #fff 20%, transparent); }
+.carousel-fade-right { right: 0; background: linear-gradient(to left, #fff 20%, transparent); }
+
+@media (max-width: 860px) {
+    .carousel-arrow { display: none; }
+    .carousel-fade-left,
+    .carousel-fade-right { width: 30px; }
 }
 
 /* ── Empty state ──────────────────────────────────────────── */
