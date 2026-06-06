@@ -467,7 +467,7 @@
     </nav>
     @endif
 
-    <main class="main-content">
+    <main class="main-content @yield('main_class')">
         @yield('content')
     </main>
 
