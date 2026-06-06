@@ -15,16 +15,14 @@
         <img src="{{ asset('assets/img/maskot4.png') }}" alt="Almingo Maskot" class="hero-mascot">
 
         <div class="hero-text" style="flex:1;">
-            @php
-                $totalLevels = $levels->count();
-                $totalLessons = $levels->sum(fn($l) => $l->lessons->count());
-            @endphp
-
-            <h2>Almancayı seviyelerle adım adım keşfet.</h2>
-
-            <div class="hero-stats" aria-label="Eğitim özeti">
-                <span>{{ $totalLevels }} seviye</span>
-                <span>{{ $totalLessons }} ders</span>
+            <div class="hero-level-info" id="hero-level-info">
+                <span class="hero-level-badge" id="hero-level-badge">A1</span>
+                <h2 class="hero-level-title" id="hero-level-title">Başlangıç</h2>
+                <div class="hero-level-stats" id="hero-level-stats">
+                    <span id="hero-lesson-count">0 ders</span>
+                    <span class="hero-stat-divider">·</span>
+                    <span id="hero-progress-text">%0 tamamlandı</span>
+                </div>
             </div>
         </div>
     </div>
@@ -64,6 +62,11 @@
                 @endphp
 
                 <a href="{{ route('user.level.show', $level->id) }}" class="level-card {{ $levelTheme }}"
+                    data-level-id="{{ $level->id }}"
+                    data-level-badge="{{ $levelBadge }}"
+                    data-level-name="{{ $levelName ?: $level->level_title }}"
+                    data-lesson-count="{{ $lessonCount }}"
+                    data-progress="{{ $progress }}"
                     aria-label="{{ $level->level_title }} - {{ $progress }}% tamamlandı">
 
                     {{-- Dış çerçeve (lacivert #0a0e1f) — zaten kart bg rengi --}}
@@ -152,6 +155,37 @@
                 carousel.addEventListener('scroll', updateBtns, { passive: true });
                 updateBtns();
             }
+
+            // ── Active level hero updater ──
+            var heroBadge = document.getElementById('hero-level-badge');
+            var heroTitle = document.getElementById('hero-level-title');
+            var heroLessons = document.getElementById('hero-lesson-count');
+            var heroProgress = document.getElementById('hero-progress-text');
+            var cards = document.querySelectorAll('.level-card');
+
+            function updateHero(card) {
+                if (!card) return;
+                heroBadge.textContent = card.dataset.levelBadge || '';
+                heroTitle.textContent = card.dataset.levelName || '';
+                heroLessons.textContent = card.dataset.lessonCount + ' ders';
+                heroProgress.textContent = '%' + card.dataset.progress + ' tamamlandı';
+            }
+
+            // Set initial from first card
+            if (cards.length > 0) updateHero(cards[0]);
+
+            var observer = new IntersectionObserver(function (entries) {
+                var best = null, bestRatio = 0;
+                entries.forEach(function (e) {
+                    if (e.intersectionRatio > bestRatio) {
+                        bestRatio = e.intersectionRatio;
+                        best = e.target;
+                    }
+                });
+                if (best) updateHero(best);
+            }, { root: carousel, threshold: [0, 0.25, 0.5, 0.75, 1] });
+
+            cards.forEach(function (c) { observer.observe(c); });
         });
     </script>
 

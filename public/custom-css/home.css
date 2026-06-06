@@ -118,6 +118,47 @@ body,
     z-index: 3;
 }
 
+.hero-level-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.hero-level-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'Manrope', sans-serif;
+    font-size: .75rem;
+    font-weight: 800;
+    color: #fff;
+    background: #0a0e1f;
+    padding: 4px 12px;
+    border-radius: 6px;
+    width: fit-content;
+    letter-spacing: .5px;
+}
+.hero-level-title {
+    font-family: 'Manrope', sans-serif;
+    font-size: 1.9rem;
+    font-weight: 900;
+    color: #0a0e1f;
+    letter-spacing: 0;
+    margin: 4px 0 0;
+    line-height: 1.1;
+}
+.hero-level-stats {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: .88rem;
+    font-weight: 600;
+    color: #475569;
+    margin-top: 4px;
+}
+.hero-stat-divider {
+    color: #cbd5e1;
+}
+
 .hero-text h2 {
     font-family: 'Manrope', sans-serif;
     font-size: 1.9rem;
@@ -135,28 +176,6 @@ body,
     font-weight: 600;
     margin: 10px 0 0;
     line-height: 1.6;
-}
-
-.hero-stats {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 18px;
-}
-
-.hero-stats span {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 34px;
-    padding: 7px 14px;
-    border: 2px solid rgba(10, 14, 31, 0.16);
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.72);
-    color: #0a0e1f;
-    font-size: 0.9rem;
-    font-weight: 900;
-    box-shadow: 0 8px 18px rgba(10, 14, 31, 0.08);
 }
 
 /* =============================================================
