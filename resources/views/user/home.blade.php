@@ -50,48 +50,48 @@
                 @endphp
 
                 <a href="{{ route('user.level.show', $level->id) }}" class="level-card {{ $levelTheme }}"
-                    data-level-id="{{ $level->id }}"
-                    data-level-badge="{{ $levelBadge }}"
-                    data-level-name="{{ $levelName ?: $level->level_title }}"
-                    data-lesson-count="{{ $lessonCount }}"
-                    data-progress="{{ $progress }}"
-                    aria-label="{{ $level->level_title }} - {{ $progress }}% tamamlandı">
+                        data-level-id="{{ $level->id }}"
+                        data-level-badge="{{ $levelBadge }}"
+                        data-level-name="{{ $levelName ?: $level->level_title }}"
+                        data-lesson-count="{{ $lessonCount }}"
+                        data-progress="{{ $progress }}"
+                        aria-label="{{ $level->level_title }} - {{ $progress }}% tamamlandı">
 
-                    {{-- Dış çerçeve (lacivert #0a0e1f) — zaten kart bg rengi --}}
-                    {{-- Altın orta katman --}}
-                    <div class="level-card-bg"></div>
-                    {{-- Krem/beyaz iç katman --}}
-                    <div class="level-card-inner"></div>
+                        {{-- Dış çerçeve (lacivert #0a0e1f) — zaten kart bg rengi --}}
+                        {{-- Altın orta katman --}}
+                        <div class="level-card-bg"></div>
+                        {{-- Krem/beyaz iç katman --}}
+                        <div class="level-card-inner"></div>
 
-                    <div class="level-card-body">
+                        <div class="level-card-body">
 
-                        <span class="level-badge">{{ $levelBadge }}</span>
+                            <span class="level-badge">{{ $levelBadge }}</span>
 
-                        <img src="{{ $cardImageSrc }}" class="level-mascot" alt="{{ $levelBadge }} Görseli">
+                            <img src="{{ $cardImageSrc }}" class="level-mascot" alt="{{ $levelBadge }} Görseli">
 
-                        <h3 class="level-title">{{ $levelName ?: $level->level_title }}</h3>
+                            <h3 class="level-title">{{ $levelName ?: $level->level_title }}</h3>
 
-                        <div class="level-progress-ring" style="--progress: {{ $progress }}%;"
-                            aria-label="{{ $progress }}% tamamlandı">
-                            <div class="level-progress-ring-inner">
-                                <strong>{{ $progress }}%</strong>
-                                <span>tamamlandı</span>
+                            <div class="level-progress-ring" style="--progress: {{ $progress }}%;"
+                                aria-label="{{ $progress }}% tamamlandı">
+                                <div class="level-progress-ring-inner">
+                                    <strong>{{ $progress }}%</strong>
+                                    <span>tamamlandı</span>
+                                </div>
                             </div>
-                        </div>
 
-                        <span class="level-meta">
-                            <strong>{{ $lessonCount }}</strong>
-                            <span>ders</span>
-                        </span>
-                        <div class="level-action-row">
-                            <span class="level-start-cta">{{ $ctaText }}</span>
-                        </div>
+                            <span class="level-meta">
+                                <strong>{{ $lessonCount }}</strong>
+                                <span>ders</span>
+                            </span>
+                            <div class="level-action-row">
+                                <span class="level-start-cta">{{ $ctaText }}</span>
+                            </div>
 
-                    </div>
+                        </div>
                 </a>
 
             @empty
-                <div class="empty-state">
+                <div class="empty-state" style="width: 100%">
                     <div style="width:72px;height:72px;background:#fff8e1;border-radius:50%;
                                         display:flex;align-items:center;justify-content:center;
                                         margin:0 auto 20px;">
@@ -126,8 +126,10 @@
             if (carousel && btnPrev && btnNext) {
                 function scrollStep() {
                     var card = carousel.querySelector('.level-card');
-                    var gap = parseInt(getComputedStyle(carousel).gap) || 48;
-                    return card ? card.offsetWidth + gap : 300;
+                    var gap = parseInt(getComputedStyle(carousel).gap) || 24;
+                    var step = card ? card.offsetWidth + gap : 300;
+                    if (window.innerWidth >= 1024) step *= 3;
+                    return step;
                 }
                 btnPrev.addEventListener('click', function () {
                     carousel.scrollBy({ left: -scrollStep(), behavior: 'smooth' });
