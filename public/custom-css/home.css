@@ -65,8 +65,8 @@ body, .main-content.is-home {
 }
 .carousel-btn:active { transform: scale(0.96); }
 .carousel-btn svg { width: 18px; height: 18px; stroke: #FFCC00; stroke-width: 2.8px; flex-shrink: 0; }
-.carousel-btn--prev { left: 12px; }
-.carousel-btn--next { right: 12px; }
+.carousel-btn--prev { left: calc(50% - 90px); }
+.carousel-btn--next { left: calc(50% + 50px); }
 
 /* =============================================================
    LEVEL CARD
@@ -300,5 +300,7 @@ body, .main-content.is-home {
     .level-card-circle { width: 320px; height: 320px; top: -24px; }
     .level-mascot { width: 120px; bottom: 50px; }
     .carousel-btn { width: 32px; height: 32px; }
+    .carousel-btn--prev { left: calc(50% - 82px); }
+    .carousel-btn--next { left: calc(50% + 50px); }
     .level-grid { padding: 16px 16px 24px; }
 }
