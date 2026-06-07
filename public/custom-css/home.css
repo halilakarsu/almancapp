@@ -190,6 +190,18 @@ body,
     overflow: hidden;
 }
 
+@media (min-width: 1024px) {
+    .carousel-wrapper {
+        --card-size: min(380px, calc((100cqw - 128px) / 3));
+        --peek-w: 0px;
+    }
+
+    .level-grid {
+        gap: 24px;
+        padding: 24px 40px 50px;
+    }
+}
+
 .level-grid {
     display: flex;
     gap: max(12px, calc(50cqw - (var(--card-size) / 2) - var(--peek-w)));
