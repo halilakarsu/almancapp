@@ -48,9 +48,9 @@ body,
             #7dd4f7 35%,
             #aae5ff 65%,
             #c8eefd 100%);
-    padding: 20px 56px 60px;
+    padding: 20px 56px 20px;
     overflow: hidden;
-    min-height: 120px;
+    min-height: 100px;
 }
 
 .hero-section::before {
@@ -185,7 +185,9 @@ body,
     position: relative;
     overflow: hidden;
     background: #f0f9ff;
-    padding: 40px 0 60px;
+    padding: 0 0 60px;
+    margin-top: -60px;
+    container-type: inline-size;
 }
 
 .level-grid {
@@ -197,7 +199,7 @@ body,
 
 .level-grid > .level-card {
     flex: 0 0 calc(100% - 40px);
-    --card-size: calc(100vw - 40px);
+    --card-size: calc(100cqw - 40px);
     min-width: 0;
 }
 
@@ -208,13 +210,13 @@ body,
     }
     .level-grid > .level-card {
         flex: 0 0 calc((100% - 40px - 24px) / 2);
-        --card-size: calc((100vw - 40px - 24px) / 2);
+        --card-size: calc((100cqw - 40px - 24px) / 2);
     }
 }
 
 @media (min-width: 1200px) {
     .level-grid > .level-card {
-        --card-size: min(420px, calc((100vw - 40px - 24px) / 2));
+        --card-size: min(420px, calc((100cqw - 40px - 24px) / 2));
     }
 }
 
@@ -317,9 +319,8 @@ body,
 .level-card {
     --level-accent: #FFCC00;
     --level-accent-soft: #fff6c7;
-    --card-size: min(340px, 100cqw);
-    width: var(--card-size);
-    height: calc(var(--card-size) * 1.35);
+    width: 100%;
+    height: calc(var(--card-size) * 2);
     border-radius: 18px;
     background: #fff;
     display: flex;
