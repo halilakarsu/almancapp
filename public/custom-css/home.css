@@ -92,6 +92,7 @@ body,
 .hero-mascot {
     width: 175px;
     height: auto;
+    margin: 0 auto;
     animation: float 3.5s ease-in-out infinite;
     filter: drop-shadow(0 16px 28px rgba(10, 14, 31, 0.15));
     flex-shrink: 0;
