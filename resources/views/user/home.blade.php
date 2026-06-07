@@ -12,7 +12,6 @@
     HERO SECTION — Açık gökyüzü (Duolingo tarzı) + panel renkleri
     ============================================================ --}}
     <div class="hero-section">
-        <img src="{{ asset('assets/img/maskot4.png') }}" alt="Almingo Maskot" class="hero-mascot">
     </div>
 
     {{-- ============================================================
