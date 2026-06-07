@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
     <style>
+        .sidebar, .sidebar-backdrop { display: none !important; }
+        .main-content { margin-left: 0 !important; }
         :root {
             --primary: #9d1c24;
             /* German Red */
