@@ -76,7 +76,9 @@
                                 <div class="level-progress-ring-inner">
                                     <strong>{{ $progress }}%</strong>
                                     <span>tamamlandı</span>
-                                </div>
+    </div>
+
+    <div class="carousel-dots"></div>
                             </div>
 
                             <span class="level-meta">
@@ -119,32 +121,67 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            var carousel = document.getElementById('level-carousel');
+            var track = document.getElementById('level-carousel');
             var btnPrev = document.getElementById('carousel-prev');
             var btnNext = document.getElementById('carousel-next');
+            var cards = track.querySelectorAll('.level-card');
+            if (!track || !btnPrev || !btnNext || !cards.length) return;
 
-            if (carousel && btnPrev && btnNext) {
-                function scrollStep() {
-                    var card = carousel.querySelector('.level-card');
-                    var gap = parseInt(getComputedStyle(carousel).gap) || 24;
-                    var step = card ? card.offsetWidth + gap : 300;
-                    if (window.innerWidth >= 1024) step *= 3;
-                    return step;
-                }
-                btnPrev.addEventListener('click', function () {
-                    carousel.scrollBy({ left: -scrollStep(), behavior: 'smooth' });
-                });
-                btnNext.addEventListener('click', function () {
-                    carousel.scrollBy({ left: scrollStep(), behavior: 'smooth' });
-                });
-                function updateBtns() {
-                    btnPrev.style.opacity = carousel.scrollLeft > 10 ? '1' : '0.35';
-                    var atEnd = carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth - 10;
-                    btnNext.style.opacity = atEnd ? '0.35' : '1';
-                }
-                carousel.addEventListener('scroll', updateBtns, { passive: true });
-                updateBtns();
+            var current = 0;
+            var dotsContainer = document.querySelector('.carousel-dots');
+
+            function getCardsPerPage() {
+                return window.innerWidth >= 768 ? 3 : 1;
             }
+
+            function totalPages() {
+                return Math.ceil(cards.length / getCardsPerPage());
+            }
+
+            function slideTo(page) {
+                var perPage = getCardsPerPage();
+                var maxPage = totalPages() - 1;
+                current = Math.max(0, Math.min(page, maxPage));
+
+                var card = cards[0];
+                var gap = parseInt(getComputedStyle(track).gap) || 0;
+                var step = card.offsetWidth + gap;
+                track.style.transform = 'translateX(-' + (current * perPage * step) + 'px)';
+
+                btnPrev.style.opacity = current > 0 ? '1' : '0.35';
+                btnNext.style.opacity = current < maxPage ? '1' : '0.35';
+
+                if (dotsContainer) {
+                    var dots = dotsContainer.querySelectorAll('.carousel-dot');
+                    dots.forEach(function (d, i) {
+                        d.classList.toggle('is-active', i === current);
+                    });
+                }
+            }
+
+            btnPrev.addEventListener('click', function () { slideTo(current - 1); });
+            btnNext.addEventListener('click', function () { slideTo(current + 1); });
+
+            // Build dots
+            if (dotsContainer) {
+                var total = totalPages();
+                for (var i = 0; i < total; i++) {
+                    var dot = document.createElement('button');
+                    dot.className = 'carousel-dot' + (i === 0 ? ' is-active' : '');
+                    dot.setAttribute('aria-label', 'Sayfa ' + (i + 1));
+                    dot.addEventListener('click', function (idx) { slideTo(idx); }.bind(null, i));
+                    dotsContainer.appendChild(dot);
+                }
+            }
+
+            slideTo(0);
+
+            window.addEventListener('resize', function () {
+                var perPage = getCardsPerPage();
+                var total = totalPages();
+                if (current >= total) current = total - 1;
+                slideTo(current);
+            });
         });
     </script>
 
