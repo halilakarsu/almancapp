@@ -1,594 +1,304 @@
 /* =============================================================
-   ALMINGO - Home / Levels Page  |  home.css
+   ALMINGO – home.css  (v11 – Perfect Circle Card)
    ============================================================= */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Manrope:wght@700;800;900&display=swap');
 
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-}
+*, *::before, *::after { box-sizing: border-box; }
 
-.level-grid,
-.level-card,
-.hero-section {
+body, .main-content.is-home {
+    background: #fff5f5;
     font-family: 'Inter', system-ui, sans-serif;
 }
-
-body,
-.main-content.is-home {
-    background: #f0f9ff;
-}
-
 .main-content.is-home {
     max-width: 100%;
-    padding-left: 0;
-    padding-right: 0;
-    padding-top: 0;
+    padding: 0;
 }
-
 @media (max-width: 768px) {
-    .main-content.is-home {
-        padding-top: 80px;
-    }
+    .main-content.is-home { padding-top: 80px; }
 }
+
+.hero-section { display: none !important; }
 
 /* =============================================================
-   HERO  —  Duolingo tarzı açık gökyüzü
-   ============================================================= */
-.hero-section {
-    position: relative;
-    display: flex;
-    align-items: center;
-    gap: 40px;
-    flex-wrap: wrap;
-    background: linear-gradient(180deg,
-            #58c5f0 0%,
-            #7dd4f7 35%,
-            #aae5ff 65%,
-            #c8eefd 100%);
-    padding: 20px 56px 20px;
-    overflow: hidden;
-    min-height: 100px;
-}
-
-.hero-section::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background:
-        radial-gradient(ellipse 65% 50% at 50% -5%,
-            rgba(255, 255, 255, 0.40) 0%,
-            transparent 65%),
-        radial-gradient(ellipse 25% 35% at 82% 12%,
-            rgba(255, 204, 0, 0.18) 0%,
-            transparent 60%);
-    pointer-events: none;
-}
-
-.hero-mascot {
-    width: 175px;
-    height: auto;
-    margin: 0 auto;
-    animation: float 3.5s ease-in-out infinite;
-    filter: drop-shadow(0 16px 28px rgba(10, 14, 31, 0.15));
-    flex-shrink: 0;
-    position: relative;
-    z-index: 3;
-}
-
-@keyframes float {
-
-    0%,
-    100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-12px);
-    }
-}
-
-@media (max-width: 860px) {
-    .hero-section {
-        padding: 24px 24px 20px;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero-section {
-        padding: 20px 20px 16px;
-        gap: 20px;
-        min-height: 80px;
-    }
-}
-
-    50% {
-        transform: translateY(-12px);
-    }
-}
-
-.hero-text {
-    flex: 1;
-    position: relative;
-    z-index: 3;
-}
-
-.hero-level-info {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-}
-.hero-level-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-family: 'Manrope', sans-serif;
-    font-size: .75rem;
-    font-weight: 800;
-    color: #fff;
-    background: #0a0e1f;
-    padding: 4px 12px;
-    border-radius: 6px;
-    width: fit-content;
-    letter-spacing: .5px;
-}
-.hero-level-title {
-    font-family: 'Manrope', sans-serif;
-    font-size: 1.9rem;
-    font-weight: 900;
-    color: #0a0e1f;
-    letter-spacing: 0;
-    margin: 4px 0 0;
-    line-height: 1.1;
-}
-.hero-level-stats {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-size: .88rem;
-    font-weight: 600;
-    color: #475569;
-    margin-top: 4px;
-}
-.hero-stat-divider {
-    color: #cbd5e1;
-}
-
-.hero-text h2 {
-    font-family: 'Manrope', sans-serif;
-    font-size: 1.9rem;
-    font-weight: 900;
-    color: #0a0e1f;
-    letter-spacing: 0;
-    margin: 0;
-    line-height: 1.25;
-    text-shadow: 0 2px 8px rgba(255, 255, 255, 0.50);
-}
-
-.hero-text p {
-    font-size: 1.05rem;
-    color: rgba(10, 14, 31, 0.72);
-    font-weight: 600;
-    margin: 10px 0 0;
-    line-height: 1.6;
-}
-
-/* =============================================================
-   CAROUSEL SLIDER
+   CAROUSEL
    ============================================================= */
 .carousel-wrapper {
     position: relative;
+    background: #fff5f5;
+    padding: 48px 0 64px;
     overflow: hidden;
-    background: #f0f9ff;
-    padding: 40px 0 60px;
-    container-type: inline-size;
 }
 
 .level-grid {
     display: flex;
-    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    padding: 20px 100px;
-    gap: 100px;
+    flex-direction: row;
+    gap: 24px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    /* 3 kart ortalı görünsün */
+    padding: 16px 50px 24px;
+    align-items: flex-start;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 }
+.level-grid::-webkit-scrollbar { display: none; }
+.level-grid > .level-card { scroll-snap-align: center; }
 
-.level-grid > .level-card {
-    flex: 0 0 100%;
-    --card-size: calc(100cqw - 200px);
-    min-width: 0;
-}
-
-@media (min-width: 768px) {
-    .level-grid {
-        padding: 20px 100px;
-        gap: 100px;
-    }
-    .level-grid > .level-card {
-        flex: 0 0 100%;
-        --card-size: calc((100cqw - 200px));
-    }
-}
-
-@media (min-width: 1200px) {
-    .level-grid > .level-card {
-        --card-size: min(460px, calc((100cqw - 200px)));
-    }
-}
-
-.carousel-dots {
-    display: flex;
-    justify-content: center;
-    gap: 8px;
-    margin-top: 30px;
-}
-
-.carousel-dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    border: none;
-    background: #cbd5e1;
-    cursor: pointer;
-    transition: background 0.3s, transform 0.2s;
-    padding: 0;
-}
-
-.carousel-dot.is-active {
-    background: #58c5f0;
-    transform: scale(1.3);
-}
-
-.carousel-dot:hover {
-    background: #94a3b8;
-}
-
-.empty-state-wrapper {
-    grid-column: 1 / -1;
-}
-
+/* Ok butonları */
 .carousel-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 10;
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    border: 2px solid #0a0e1f;
-    background: #fff;
-    color: #0a0e1f;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background 0.2s, color 0.2s, transform 0.2s;
-    box-shadow: 0 4px 12px rgba(10, 14, 31, 0.12);
-    padding: 0;
+    position: absolute; top: 50%; transform: translateY(-50%);
+    z-index: 10; width: 40px; height: 72px;
+    border-radius: 999px; border: none;
+    background: rgba(230,57,70,.82);
+    cursor: pointer; display: flex; align-items: center; justify-content: center;
+    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    transition: background .2s, transform .2s, box-shadow .2s;
+    box-shadow: 0 4px 20px rgba(230,57,70,.25);
 }
-
 .carousel-btn:hover {
-    background: #0a0e1f;
-    color: #fff;
-    transform: translateY(-50%) scale(1.1);
+    background: #c62828;
+    transform: translateY(-50%) scale(1.07);
+    box-shadow: 0 8px 28px rgba(230,57,70,.35);
 }
+.carousel-btn:active { transform: translateY(-50%) scale(0.96); }
+.carousel-btn svg { width: 18px; height: 18px; stroke: #FFCC00; stroke-width: 2.8px; flex-shrink: 0; }
+.carousel-btn--prev { left: 12px; }
+.carousel-btn--next { right: 12px; }
 
-.carousel-btn svg {
-    width: 20px;
-    height: 20px;
-    stroke: currentColor;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-}
-
-.carousel-btn--prev {
-    left: 12px;
-}
-
-.carousel-btn--next {
-    right: 12px;
-}
-
-@media (min-width: 768px) {
-    .carousel-btn--prev {
-        left: 24px;
-    }
-    .carousel-btn--next {
-        right: 24px;
-    }
-}
-
-@media (max-width: 860px) {
-    .hero-section {
-        padding: 24px 24px 72px;
-    }
-
-    .hero-text h2 {
-        font-size: 1.45rem;
-    }
-
-    .hero-mascot {
-        width: 130px;
-    }
-}
-
+/* =============================================================
+   LEVEL CARD
+   ============================================================= */
 .level-card {
-    --level-accent: #FFCC00;
-    --level-accent-soft: #fff6c7;
-    width: 100%;
-    height: calc(var(--card-size) * 2);
-    border-radius: 18px;
-    background: #fff;
+    /* Sabit genişlik ve yükseklik — daire için yeterli alan */
+    width:  260px;
+    height: 520px;
+    border-radius: 28px;
+    background: #ffffff;
     display: flex;
     flex-direction: column;
     text-decoration: none;
     position: relative;
-    cursor: pointer;
     overflow: hidden;
-    filter: drop-shadow(0 12px 32px rgba(10, 14, 31, 0.20));
-    transition: transform 0.30s cubic-bezier(0.34, 1.56, 0.64, 1),
-        filter 0.30s ease;
+    cursor: pointer;
+    flex-shrink: 0;
+    box-shadow:
+        0 8px 32px rgba(230,57,70,.12),
+        0 2px 8px  rgba(230,57,70,.07);
+    transition: transform .30s cubic-bezier(.34,1.56,.64,1),
+                box-shadow .28s ease;
 }
-
-.level-card--a1 {
-    --level-accent: #FFCC00;
-    --level-accent-soft: #fff7ca;
-}
-
-.level-card--a2 {
-    --level-accent: #ef4444;
-    --level-accent-soft: #fecaca;
-}
-
-.level-card--b1 {
-    --level-accent: #60a5fa;
-    --level-accent-soft: #e0f0ff;
-}
-
-.level-card--b2 {
-    --level-accent: #a78bfa;
-    --level-accent-soft: #eee8ff;
-}
-
-.level-card--c1,
-.level-card--c11 {
-    --level-accent: #fb7185;
-    --level-accent-soft: #ffe4e9;
-}
-
-.level-card--c2,
-.level-card--c21 {
-    --level-accent: #f59e0b;
-    --level-accent-soft: #fff0cf;
-}
-
-.level-card--1 {
-    --level-accent: #58c5f0;
-    --level-accent-soft: #d4f0ff;
-}
-
-.level-card--2 {
-    --level-accent: #ef4444;
-    --level-accent-soft: #fecaca;
-}
-
-.level-card--3 {
-    --level-accent: #FFCC00;
-    --level-accent-soft: #fff7ca;
-}
-
-.level-card--4 {
-    --level-accent: #1a1a2e;
-    --level-accent-soft: #e0e0f0;
-}
-
 .level-card:hover {
-    transform: translateY(-8px) scale(1.04);
-    filter: drop-shadow(0 22px 44px rgba(10, 14, 31, 0.28));
+    transform: translateY(-10px) scale(1.025);
+    box-shadow:
+        0 24px 56px rgba(230,57,70,.20),
+        0 4px 14px rgba(230,57,70,.10);
 }
 
-.level-card-bg {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg, var(--level-accent) 0%, var(--level-accent-soft) 100%);
-    z-index: 0;
-}
-
-.level-card-inner {
-    position: absolute;
-    inset: 6px;
-    border-radius: 14px;
-    background:
-        radial-gradient(circle at 50% 22%, var(--level-accent-soft) 0%, #ffffff 42%),
-        #ffffff;
-    z-index: 1;
-}
-
-.level-card-body {
+/* ── ÜST BEYAZ ALAN ── */
+.level-card-top {
+    width: 100%;
+    height: 160px;           /* sabit px — beyaz üst alan */
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 0 22px;
+    background: #ffffff;
     position: relative;
+    z-index: 3;
+}
+
+/* Sarı yuvarlak badge */
+.level-badge {
+    width: 54px; height: 54px;
+    border-radius: 50%;
+    background: #FFCC00;
+    color: #e63946;
+    font-size: 0.62rem;
+    font-weight: 900;
+    font-family: 'Manrope', sans-serif;
+    letter-spacing: .6px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 1.1;
+    box-shadow: 0 3px 12px rgba(255,204,0,.40);
+}
+
+.level-card-top-text {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.level-card-top-title {
+    font-family: 'Manrope', sans-serif;
+    font-size: 0.92rem;
+    font-weight: 900;
+    color: #1a1a2e;
+    letter-spacing: -.1px;
+    line-height: 1.2;
+}
+.level-card-top-sub {
+    font-size: 0.70rem;
+    font-weight: 500;
+    color: #aab0bc;
+}
+
+/* ── ALT KISIM: daire tam burada başlıyor ── */
+.level-card-mid {
+    /* Geriye kalan tüm alan */
+    flex: 1;
+    position: relative;
+    /* overflow hidden — dairenin sol/sağ taşması kesilir, üst taşma level-card'ın overflow'una kalır */
+    overflow: hidden;
+}
+
+/* Büyük kırmızı daire
+   — genişlik karttan büyük → sol ve sağdan taşıyor (orijinal gibi)
+   — top negatif → üstten de biraz taşıyor, beyaz alanla öpüşüyor
+*/
+.level-card-circle {
+    position: absolute;
+    left: 50%;
+    top: -30px;               /* üstten 30px taşıyor → beyaz alanla üst üste */
+    transform: translateX(-50%);
+    width: 360px;             /* karttan (260px) geniş → sol/sağ taşıyor */
+    height: 360px;            /* eşit → mükemmel daire */
+    border-radius: 50%;
+    background: #e63946;
+    z-index: 0;
+    box-shadow: 0 -6px 32px rgba(230,57,70,.15);
+}
+
+/* Daire içi metin */
+.level-card-circle-content {
+    position: absolute;
+    top: 32px;
+    left: 22px;
+    right: 10px;
     z-index: 2;
     display: flex;
     flex-direction: column;
-    width: 100%;
-    height: 100%;
-    text-align: center;
+    gap: 5px;
 }
-
-.level-card-top {
-    background: var(--level-accent);
-    padding: 10px 16px;
-    display: flex;
-    align-items: center;
-}
-
-.level-badge {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(0,0,0,0.15);
-    color: #fff;
-    font-size: .75rem;
-    font-weight: 900;
-    padding: 3px 12px;
-    border-radius: 999px;
-    font-family: 'Manrope', sans-serif;
-    letter-spacing: 0.5px;
-}
-
-.level-card-mid {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    gap: 8px;
-}
-
-.level-mascot {
-    width: 80px;
-    height: 80px;
-    object-fit: contain;
-    filter: drop-shadow(0 6px 14px rgba(10, 14, 31, 0.15));
-    transition: transform 0.30s cubic-bezier(0.34, 1.56, 0.64, 1);
-    flex-shrink: 0;
-}
-
-.level-card:hover .level-mascot {
-    transform: scale(1.12) rotate(-5deg);
-}
-
 .level-title {
     font-family: 'Manrope', sans-serif;
-    font-size: 1.2rem;
+    font-size: 1.22rem;
     font-weight: 900;
-    color: #0a0e1f;
+    color: #ffffff;
+    line-height: 1.15;
+    letter-spacing: -.2px;
     margin: 0;
-    letter-spacing: 0;
-    line-height: 1.2;
+}
+.level-subtitle {
+    font-size: 0.74rem;
+    font-weight: 700;
+    color: #FFCC00;
+    font-family: 'Inter', sans-serif;
+    margin: 0;
 }
 
-.level-progress-track {
-    width: 100%;
-    max-width: 180px;
-    height: 6px;
-    background: #e8edf5;
-    border-radius: 999px;
-    overflow: hidden;
-    margin-top: 4px;
+/* Maskot — dairenin sağ yarısında */
+.level-mascot {
+    position: absolute;
+    right: -8px;
+    bottom: 60px;
+    width: 140px;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 8px 20px rgba(0,0,0,.25));
+    transition: transform .30s cubic-bezier(.34,1.56,.64,1);
+    z-index: 3;
+}
+.level-card:hover .level-mascot {
+    transform: scale(1.10) rotate(-4deg);
 }
 
-.level-progress-fill {
-    height: 100%;
-    border-radius: 999px;
-    background: #7dd4f7;
-    transition: width 0.4s ease;
+/* Bilgi satırları */
+.level-card-infos {
+    position: absolute;
+    bottom: 36px;
+    left: 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    z-index: 4;
 }
-
-.level-card-bottom {
+.level-card-info-row {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 12px 16px;
-    border-top: 1px solid #e8edf5;
-    gap: 8px;
+    gap: 7px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: rgba(255,255,255,.80);
+    font-family: 'Inter', sans-serif;
+}
+.level-card-info-row svg {
+    width: 13px; height: 13px;
+    flex-shrink: 0;
+    stroke: #FFCC00;
 }
 
-.level-lessons {
-    font-size: .75rem;
-    font-weight: 700;
-    color: #64748b;
-    white-space: nowrap;
+/* Progress bar */
+.level-progress-track {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 5px;
+    background: rgba(255,255,255,.15);
+    z-index: 5;
+}
+.level-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #FFCC00, #ffe566);
+    border-radius: 0 3px 3px 0;
+    transition: width .8s ease;
 }
 
-.level-start-cta {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 6px 18px;
-    border: 1.5px solid #0a0e1f;
-    border-radius: 999px;
-    background: var(--level-accent);
-    color: #0a0e1f;
-    font-family: 'Manrope', sans-serif;
-    font-size: .72rem;
-    font-weight: 800;
-    white-space: nowrap;
-    box-shadow: 0 2px 0 #0a0e1f;
-    transition: transform 0.18s ease, box-shadow 0.18s ease;
+/* Sarı accent nokta — sağ alt */
+.level-card-dot {
+    position: absolute;
+    bottom: 14px;
+    right: 16px;
+    width: 20px; height: 20px;
+    border-radius: 50%;
+    background: #FFCC00;
+    z-index: 6;
+    box-shadow: 0 2px 8px rgba(255,204,0,.50);
 }
 
-.level-card:hover .level-start-cta {
-    transform: translateY(-1px);
-    box-shadow: 0 3px 0 #0a0e1f;
-}
-
-.level-card:active .level-start-cta {
-    transform: translateY(1px);
-    box-shadow: 0 1px 0 #0a0e1f;
-}
-
-.level-card-accent,
-.level-card-divider,
-.level-card-header,
-.level-card-header-left,
-.level-stats,
-.level-progress-wrap,
-.level-cta-row,
-.stat-item {
-    display: none !important;
-}
+/* Eski elemanlar gizle */
+.level-card-bg, .level-card-inner,
+.level-card-accent, .level-card-divider,
+.level-card-header, .level-card-header-left,
+.level-stats, .level-progress-wrap,
+.level-cta-row, .stat-item,
+.hex-stars, .level-card-bottom { display: none !important; }
 
 /* =============================================================
    EMPTY STATE
    ============================================================= */
 .empty-state {
-    text-align: center;
-    padding: 80px 40px;
-    background: #fff;
-    border-radius: 20px;
-    border: 1px dashed #b6daf2;
+    text-align: center; padding: 80px 40px;
+    background: #fff; border-radius: 20px;
+    border: 1px dashed #fca5a5;
     font-family: 'Inter', sans-serif;
 }
 
 /* =============================================================
    RESPONSIVE
    ============================================================= */
-@media (max-width: 480px) {
-    .hero-section {
-        padding: 20px 20px 65px;
-        gap: 20px;
-    }
-
-    .hero-mascot {
-        width: 100px;
-    }
-
-    .hero-text h2 {
-        font-size: 1.25rem;
-    }
-
-    .level-mascot {
-        width: calc(var(--card-size) * 0.25);
-        height: calc(var(--card-size) * 0.25);
-    }
-
-    .level-progress-ring {
-        --ring-size: calc(var(--card-size) * 0.2);
-    }
-
-    .level-action-row {
-        width: 100%;
-        padding: 0 2px;
-    }
-
-    .level-meta {
-        padding: 0 10px;
-        font-size: 0.68rem;
-    }
-
-    .level-start-cta {
-        padding: 0 12px;
-        font-size: 0.68rem;
-    }
+@media (max-width: 1100px) {
+    .level-grid { padding: 16px 50px 24px; }
+}
+@media (max-width: 600px) {
+    .level-card { width: 230px; height: 460px; }
+    .level-card-top { height: 140px; }
+    .level-card-circle { width: 320px; height: 320px; top: -24px; }
+    .level-mascot { width: 120px; bottom: 50px; }
+    .carousel-btn { width: 32px; height: 56px; }
+    .level-grid { padding: 16px 16px 24px; }
 }
