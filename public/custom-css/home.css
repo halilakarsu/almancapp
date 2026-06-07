@@ -26,7 +26,7 @@ body, .main-content.is-home {
 .carousel-wrapper {
     position: relative;
     background: #fff5f5;
-    padding: 48px 0 64px;
+    padding: 48px 0 80px;
     overflow: hidden;
 }
 
@@ -49,8 +49,8 @@ body, .main-content.is-home {
 
 /* Ok butonları */
 .carousel-btn {
-    position: absolute; top: 50%; transform: translateY(-50%);
-    z-index: 10; width: 40px; height: 72px;
+    position: absolute; bottom: 0; transform: none;
+    z-index: 10; width: 40px; height: 40px;
     border-radius: 999px; border: none;
     background: rgba(230,57,70,.82);
     cursor: pointer; display: flex; align-items: center; justify-content: center;
@@ -60,10 +60,10 @@ body, .main-content.is-home {
 }
 .carousel-btn:hover {
     background: #c62828;
-    transform: translateY(-50%) scale(1.07);
+    transform: scale(1.07);
     box-shadow: 0 8px 28px rgba(230,57,70,.35);
 }
-.carousel-btn:active { transform: translateY(-50%) scale(0.96); }
+.carousel-btn:active { transform: scale(0.96); }
 .carousel-btn svg { width: 18px; height: 18px; stroke: #FFCC00; stroke-width: 2.8px; flex-shrink: 0; }
 .carousel-btn--prev { left: 12px; }
 .carousel-btn--next { right: 12px; }
@@ -299,6 +299,6 @@ body, .main-content.is-home {
     .level-card-top { height: 140px; }
     .level-card-circle { width: 320px; height: 320px; top: -24px; }
     .level-mascot { width: 120px; bottom: 50px; }
-    .carousel-btn { width: 32px; height: 56px; }
+    .carousel-btn { width: 32px; height: 32px; }
     .level-grid { padding: 16px 16px 24px; }
 }
