@@ -67,28 +67,6 @@ body,
     pointer-events: none;
 }
 
-.hero-section::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 60px;
-    background:
-        radial-gradient(ellipse 30% 65% at 10% 100%, rgba(255, 255, 255, 0.7) 55%, transparent 56%),
-        radial-gradient(ellipse 24% 55% at 3% 84%, rgba(255, 255, 255, 0.7) 55%, transparent 56%),
-        radial-gradient(ellipse 24% 55% at 20% 90%, rgba(255, 255, 255, 0.7) 55%, transparent 56%),
-        radial-gradient(ellipse 28% 60% at 50% 100%, rgba(255, 255, 255, 0.7) 55%, transparent 56%),
-        radial-gradient(ellipse 22% 52% at 42% 87%, rgba(255, 255, 255, 0.7) 55%, transparent 56%),
-        radial-gradient(ellipse 22% 52% at 59% 87%, rgba(255, 255, 255, 0.7) 55%, transparent 56%),
-        radial-gradient(ellipse 28% 63% at 90% 100%, rgba(255, 255, 255, 0.7) 55%, transparent 56%),
-        radial-gradient(ellipse 22% 52% at 82% 87%, rgba(255, 255, 255, 0.7) 55%, transparent 56%),
-        radial-gradient(ellipse 22% 52% at 98% 90%, rgba(255, 255, 255, 0.7) 55%, transparent 56%),
-        linear-gradient(to top, rgba(255, 255, 255, 0.3) 25%, transparent 28%);
-    pointer-events: none;
-    z-index: 2;
-}
-
 .hero-mascot {
     width: 175px;
     height: auto;
@@ -106,6 +84,25 @@ body,
     100% {
         transform: translateY(0);
     }
+
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+@media (max-width: 860px) {
+    .hero-section {
+        padding: 24px 24px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-section {
+        padding: 20px 20px 16px;
+        gap: 20px;
+        min-height: 80px;
+    }
+}
 
     50% {
         transform: translateY(-12px);
