@@ -249,6 +249,57 @@ body,
     grid-column: 1 / -1;
 }
 
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 2px solid #0a0e1f;
+    background: #fff;
+    color: #0a0e1f;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s, color 0.2s, transform 0.2s;
+    box-shadow: 0 4px 12px rgba(10, 14, 31, 0.12);
+    padding: 0;
+}
+
+.carousel-btn:hover {
+    background: #0a0e1f;
+    color: #fff;
+    transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-btn svg {
+    width: 20px;
+    height: 20px;
+    stroke: currentColor;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.carousel-btn--prev {
+    left: 12px;
+}
+
+.carousel-btn--next {
+    right: 12px;
+}
+
+@media (min-width: 768px) {
+    .carousel-btn--prev {
+        left: 24px;
+    }
+    .carousel-btn--next {
+        right: 24px;
+    }
+}
+
 @media (max-width: 860px) {
     .hero-section {
         padding: 24px 24px 72px;
