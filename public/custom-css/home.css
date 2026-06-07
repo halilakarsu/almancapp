@@ -193,13 +193,14 @@ body,
 
 @media (min-width: 1024px) {
     .carousel-wrapper {
-        --card-size: min(380px, calc((100cqw - 128px) / 3));
+        --card-size: min(420px, calc((100cqw - 80px) / 3));
         --peek-w: 0px;
     }
 
     .level-grid {
-        gap: 24px;
+        gap: 0;
         padding: 24px 40px 50px;
+        justify-content: center;
     }
 }
 
