@@ -189,30 +189,30 @@ body,
 .level-grid {
     display: flex;
     transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    padding: 20px 16px;
-    gap: 0;
+    padding: 20px 100px;
+    gap: 100px;
 }
 
 .level-grid > .level-card {
     flex: 0 0 100%;
-    --card-size: calc(100cqw - 32px);
+    --card-size: calc(100cqw - 200px);
     min-width: 0;
 }
 
 @media (min-width: 768px) {
     .level-grid {
-        padding: 20px 40px;
-        gap: 0;
+        padding: 20px 100px;
+        gap: 100px;
     }
     .level-grid > .level-card {
         flex: 0 0 100%;
-        --card-size: calc((100cqw - 80px));
+        --card-size: calc((100cqw - 200px));
     }
 }
 
 @media (min-width: 1200px) {
     .level-grid > .level-card {
-        --card-size: min(460px, calc((100cqw - 80px)));
+        --card-size: min(460px, calc((100cqw - 200px)));
     }
 }
 
