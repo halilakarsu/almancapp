@@ -58,27 +58,20 @@
 
                         <div class="level-card-body">
 
-                            <span class="level-badge">{{ $levelBadge }}</span>
-
-                            <img src="{{ $cardImageSrc }}" class="level-mascot" alt="{{ $levelBadge }} Görseli">
-
-                            <h3 class="level-title">{{ $levelName ?: $level->level_title }}</h3>
-
-                            <div class="level-progress-ring" style="--progress: {{ $progress }}%;"
-                                aria-label="{{ $progress }}% tamamlandı">
-                                <div class="level-progress-ring-inner">
-                                    <strong>{{ $progress }}%</strong>
-                                    <span>tamamlandı</span>
-    </div>
-
-    <div class="carousel-dots"></div>
+                            <div class="level-card-top">
+                                <span class="level-badge">{{ $levelBadge }}</span>
                             </div>
 
-                            <span class="level-meta">
-                                <strong>{{ $lessonCount }}</strong>
-                                <span>ders</span>
-                            </span>
-                            <div class="level-action-row">
+                            <div class="level-card-mid">
+                                <img src="{{ $cardImageSrc }}" class="level-mascot" alt="{{ $levelBadge }} Görseli">
+                                <h3 class="level-title">{{ $levelName ?: $level->level_title }}</h3>
+                                <div class="level-progress-track">
+                                    <div class="level-progress-fill" style="width: {{ $progress }}%"></div>
+                                </div>
+                            </div>
+
+                            <div class="level-card-bottom">
+                                <span class="level-lessons">{{ $lessonCount }} ders</span>
                                 <span class="level-start-cta">{{ $ctaText }}</span>
                             </div>
 
@@ -124,7 +117,7 @@
             var dotsContainer = document.querySelector('.carousel-dots');
 
             function getCardsPerPage() {
-                return window.innerWidth >= 768 ? 2 : 1;
+                return 1;
             }
 
             function totalPages() {

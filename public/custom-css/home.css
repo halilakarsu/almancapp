@@ -202,17 +202,17 @@ body,
 @media (min-width: 768px) {
     .level-grid {
         padding: 0 40px;
-        gap: 24px;
+        gap: 0;
     }
     .level-grid > .level-card {
-        flex: 0 0 calc((100% - 40px - 24px) / 2);
-        --card-size: calc((100cqw - 40px - 24px) / 2);
+        flex: 0 0 calc(100% - 80px);
+        --card-size: calc((100cqw - 80px));
     }
 }
 
 @media (min-width: 1200px) {
     .level-grid > .level-card {
-        --card-size: min(420px, calc((100cqw - 40px - 24px) / 2));
+        --card-size: min(500px, calc((100cqw - 80px)));
     }
 }
 
@@ -409,140 +409,95 @@ body,
     z-index: 2;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
     width: 100%;
     height: 100%;
-    padding: calc(var(--card-size) * 0.075) calc(var(--card-size) * 0.075) calc(var(--card-size) * 0.07);
     text-align: center;
+}
+
+.level-card-top {
+    background: var(--level-accent);
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
 }
 
 .level-badge {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    background: #0a0e1f;
-    color: var(--level-accent);
-    font-size: calc(var(--card-size) * 0.04);
+    background: rgba(0,0,0,0.15);
+    color: #fff;
+    font-size: .75rem;
     font-weight: 900;
-    padding: calc(var(--card-size) * 0.022) calc(var(--card-size) * 0.055);
+    padding: 3px 12px;
     border-radius: 999px;
-    letter-spacing: 0.8px;
     font-family: 'Manrope', sans-serif;
-    border: 2px solid var(--level-accent);
-    margin-bottom: calc(var(--card-size) * 0.035);
-    box-shadow: 0 3px 10px rgba(10, 14, 31, 0.18);
+    letter-spacing: 0.5px;
 }
 
-.level-mascot {
-    width: calc(var(--card-size) * 0.27);
-    height: calc(var(--card-size) * 0.27);
-    object-fit: contain;
-    filter: drop-shadow(0 6px 14px rgba(10, 14, 31, 0.18));
-    transition: transform 0.30s cubic-bezier(0.34, 1.56, 0.64, 1);
-    margin-bottom: calc(var(--card-size) * 0.025);
-    flex-shrink: 0;
-}
-
-.level-card:hover .level-mascot {
-    transform: scale(1.15) rotate(-6deg);
-}
-
-.level-title {
-    font-family: 'Manrope', sans-serif;
-    font-size: calc(var(--card-size) * 0.048);
-    font-weight: 900;
-    color: #0a0e1f;
-    margin: 0 0 calc(var(--card-size) * 0.026);
-    letter-spacing: 0;
-    line-height: 1.2;
-}
-
-.level-progress-ring {
-    --ring-size: calc(var(--card-size) * 0.22);
-    --ring-track: #e8edf5;
-    width: var(--ring-size);
-    height: var(--ring-size);
-    display: grid;
-    place-items: center;
-    margin-top: calc(var(--card-size) * 0.004);
-    border-radius: 50%;
-    background:
-        conic-gradient(#7dd4f7 var(--progress), var(--ring-track) 0);
-    box-shadow:
-        0 10px 22px rgba(10, 14, 31, 0.14),
-        inset 0 0 0 2px rgba(10, 14, 31, 0.12);
-    position: relative;
-    flex-shrink: 0;
-}
-
-.level-progress-ring::before {
-    content: '';
-    position: absolute;
-    inset: calc(var(--card-size) * -0.01);
-    border-radius: inherit;
-    border: 2px solid rgba(10, 14, 31, 0.12);
-}
-
-.level-progress-ring-inner {
-    width: calc(var(--ring-size) * 0.72);
-    height: calc(var(--ring-size) * 0.72);
+.level-card-mid {
+    flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.94);
-    border: 2px solid rgba(10, 14, 31, 0.08);
-    color: #0a0e1f;
-    box-shadow: inset 0 4px 10px rgba(10, 14, 31, 0.06);
+    padding: 20px;
+    gap: 8px;
 }
 
-.level-progress-ring-inner strong {
+.level-mascot {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    filter: drop-shadow(0 6px 14px rgba(10, 14, 31, 0.15));
+    transition: transform 0.30s cubic-bezier(0.34, 1.56, 0.64, 1);
+    flex-shrink: 0;
+}
+
+.level-card:hover .level-mascot {
+    transform: scale(1.12) rotate(-5deg);
+}
+
+.level-title {
     font-family: 'Manrope', sans-serif;
-    font-size: calc(var(--card-size) * 0.04);
+    font-size: 1.2rem;
     font-weight: 900;
-    line-height: 1;
+    color: #0a0e1f;
+    margin: 0;
+    letter-spacing: 0;
+    line-height: 1.2;
 }
 
-.level-progress-ring-inner span {
-    margin-top: 3px;
-    color: rgba(10, 14, 31, 0.58);
-    font-size: calc(var(--card-size) * 0.018);
-    font-weight: 900;
-    line-height: 1;
+.level-progress-track {
+    width: 100%;
+    max-width: 180px;
+    height: 6px;
+    background: #e8edf5;
+    border-radius: 999px;
+    overflow: hidden;
+    margin-top: 4px;
 }
 
-.level-action-row {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: calc(var(--card-size) * 0.22);
+.level-progress-fill {
+    height: 100%;
+    border-radius: 999px;
+    background: #7dd4f7;
+    transition: width 0.4s ease;
+}
+
+.level-card-bottom {
     display: flex;
     align-items: center;
-    justify-content: center;
-    pointer-events: none;
-}
-.level-action-row > * {
-    pointer-events: auto;
-}
-.level-action-row > * {
-    pointer-events: auto;
+    justify-content: space-between;
+    padding: 12px 16px;
+    border-top: 1px solid #e8edf5;
+    gap: 8px;
 }
 
-.level-meta {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    align-self: flex-start;
-    min-height: calc(var(--card-size) * 0.054);
-    padding: 0 calc(var(--card-size) * 0.032);
-    border-radius: 999px;
-    background: #0a0e1f;
-    color: var(--level-accent);
-    font-size: calc(var(--card-size) * 0.022);
-    font-weight: 900;
-    line-height: 1.2;
+.level-lessons {
+    font-size: .75rem;
+    font-weight: 700;
+    color: #64748b;
     white-space: nowrap;
 }
 
@@ -550,16 +505,14 @@ body,
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-width: 0;
-    padding: 4px 14px;
+    padding: 6px 18px;
     border: 1.5px solid #0a0e1f;
     border-radius: 999px;
     background: var(--level-accent);
     color: #0a0e1f;
     font-family: 'Manrope', sans-serif;
-    font-size: .7rem;
+    font-size: .72rem;
     font-weight: 800;
-    line-height: 1.3;
     white-space: nowrap;
     box-shadow: 0 2px 0 #0a0e1f;
     transition: transform 0.18s ease, box-shadow 0.18s ease;
@@ -573,7 +526,6 @@ body,
 .level-card:active .level-start-cta {
     transform: translateY(1px);
     box-shadow: 0 1px 0 #0a0e1f;
-        0 calc(var(--card-size) * 0.02) calc(var(--card-size) * 0.035) rgba(10, 14, 31, 0.14);
 }
 
 .level-card-accent,
