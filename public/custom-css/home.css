@@ -73,7 +73,7 @@ body, .main-content.is-home {
    ============================================================= */
 .level-card {
     /* Sabit genişlik ve yükseklik — daire için yeterli alan */
-    width:  351px;
+    width:  316px;
     height: 520px;
     border-radius: 28px;
     background: #ffffff;
@@ -166,8 +166,8 @@ body, .main-content.is-home {
     left: 50%;
     top: -30px;               /* üstten 30px taşıyor → beyaz alanla üst üste */
     transform: translateX(-50%);
-    width: 414px;             /* karttan geniş → sol/sağ taşıyor */
-    height: 414px;            /* eşit → mükemmel daire */
+    width: 373px;             /* karttan geniş → sol/sağ taşıyor */
+    height: 373px;            /* eşit → mükemmel daire */
     border-radius: 50%;
     background: #e63946;
     z-index: 0;
@@ -207,7 +207,7 @@ body, .main-content.is-home {
     position: absolute;
     right: -8px;
     bottom: 60px;
-    width: 144px;
+    width: 130px;
     height: auto;
     object-fit: contain;
     filter: drop-shadow(0 8px 20px rgba(0,0,0,.25));
@@ -295,10 +295,10 @@ body, .main-content.is-home {
     .level-grid { padding: 16px 50px 24px; }
 }
 @media (max-width: 600px) {
-    .level-card { width: 311px; height: 460px; }
+    .level-card { width: 280px; height: 460px; }
     .level-card-top { height: 140px; }
-    .level-card-circle { width: 360px; height: 360px; top: -24px; }
-    .level-mascot { width: 126px; bottom: 50px; }
+    .level-card-circle { width: 324px; height: 324px; top: -24px; }
+    .level-mascot { width: 113px; bottom: 50px; }
     .carousel-btn { width: 32px; height: 32px; }
     .carousel-btn--prev { left: calc(50% - 82px); }
     .carousel-btn--next { left: calc(50% + 50px); }
