@@ -131,7 +131,7 @@
             var dotsContainer = document.querySelector('.carousel-dots');
 
             function getCardsPerPage() {
-                return window.innerWidth >= 768 ? 3 : 1;
+                return window.innerWidth >= 768 ? 2 : 1;
             }
 
             function totalPages() {
