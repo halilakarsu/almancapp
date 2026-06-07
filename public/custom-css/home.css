@@ -182,7 +182,7 @@ body,
    ============================================================= */
 .carousel-wrapper {
     container-type: inline-size;
-    --card-size: min(552px, 76cqw);
+    --card-size: min(460px, 76cqw);
     --peek-w: 44px;
     position: relative;
     background: #f0f9ff;
@@ -192,7 +192,7 @@ body,
 
 @media (min-width: 1024px) {
     .carousel-wrapper {
-        --card-size: min(456px, calc((100cqw - 128px) / 3));
+        --card-size: min(380px, calc((100cqw - 128px) / 3));
         --peek-w: 0px;
     }
 
@@ -282,7 +282,7 @@ body,
     --level-accent: #FFCC00;
     --level-accent-soft: #fff6c7;
     width: var(--card-size);
-    height: calc(var(--card-size) / 1.2 * 1.04);
+    height: var(--card-size);
     clip-path: polygon(50% 0%, 75% 6.7%, 93.3% 25%,
             100% 50%, 93.3% 75%, 75% 93.3%,
             50% 100%, 25% 93.3%, 6.7% 75%,
